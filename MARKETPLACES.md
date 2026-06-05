@@ -11,7 +11,7 @@ https://github.com/billwang233/douyin-web-control-skill
 | Marketplace | Status | Notes |
 | --- | --- | --- |
 | skills.sh | Installable / indexing triggered | `npx skills add billwang233/douyin-web-control-skill` found and installed `douyin-web-control`. The web listing was still returning 404 immediately after install, so treat the page as pending until the index catches up. |
-| ClawHub | Blocked on publisher login | `npx clawhub@latest publish skills/douyin-web-control --no-input` requires `clawhub login`. Use `npx clawhub@latest login --device`, then run the publish command. |
+| ClawHub | Published | Published as `douyin-web-control@0.1.0` under `billwang233`. `clawhub inspect douyin-web-control` reports moderation `CLEAN`. |
 | OmniSkill | Submitted through GitHub issue | The public API submit attempt returned `403 Forbidden`. Index request opened at `https://github.com/diegosouzapw/awesome-omni-skill/issues/8`. |
 | SkillMap | Feedback submitted | SkillMap currently exposes a feedback form but no obvious public skill-submit endpoint. A repository indexing request was submitted through `/v1/feedback`. |
 | skills.re | Attempted, not completed | The site exposes a GitHub Import form, but command-line clients hit SSL EOF from this environment and no public submit endpoint was confirmed. |
@@ -24,11 +24,16 @@ Trigger skills.sh discovery:
 npx skills add billwang233/douyin-web-control-skill
 ```
 
-Publish to ClawHub after login:
+Publish or republish to ClawHub after login:
 
 ```bash
 npx clawhub@latest login --device
-npx clawhub@latest publish skills/douyin-web-control
+npx clawhub@latest publish skills/douyin-web-control \
+  --slug douyin-web-control \
+  --name "Douyin Web Control" \
+  --version 0.1.0 \
+  --tags douyin,browser-automation,cli,agent-skill \
+  --changelog "Initial release of the Douyin web control Agent skill."
 ```
 
 Submit to OmniSkill API if network access is allowed:

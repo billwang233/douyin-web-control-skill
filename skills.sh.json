@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Douyin",
+      "description": "Skills for controlling Douyin web through the douyin-web CLI.",
+      "skills": [
+        "douyin-web-control"
+      ]
+    }
+  ]
+}

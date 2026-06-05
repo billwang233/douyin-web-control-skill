@@ -1,7 +1,5 @@
 # Douyin Web Control Skill
 
-[![skills.sh](https://skills.sh/b/billwang233/douyin-web-control-skill)](https://skills.sh/billwang233/douyin-web-control-skill)
-
 An Agent skill that teaches AI agents how to operate Douyin web through the `douyin-web` CLI.
 
 This repository contains only the skill. The CLI lives in a separate repository:
@@ -44,7 +42,7 @@ skills/douyin-web-control/
 
 ## Marketplace Notes
 
-- `skills.sh`: this repository is installable with `npx skills add billwang233/douyin-web-control-skill`; skills.sh picks up repositories after they are installed through the CLI.
+- `skills.sh`: this repository is installable with `npx skills add billwang233/douyin-web-control-skill`; the web listing may take time to appear after the first successful install.
 - `ClawHub`: publish this skill repository with the ClawHub CLI if you use OpenClaw.
 - `SkillMap` / similar indexes: submit or index this GitHub repository URL when their intake form asks for a public skill repo.
 

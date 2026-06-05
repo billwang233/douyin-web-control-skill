@@ -1,6 +1,6 @@
 ---
 name: douyin-web-control
-description: Use this skill when the user wants an Agent to operate Douyin web through the douyin-web CLI, including launching or focusing Douyin, login checks, feed navigation, search, current video info, playback control, comments, likes, favorites, sharing, danmaku, screenshots, or screen/audio recording. Prefer the CLI over direct browser automation for Douyin control. Do not use it for video-watching strategy, recommendation guidance, persona behavior, or video creation ideas.
+description: Use this skill when the user wants an Agent to operate Douyin web through the douyin-web CLI, including launching or focusing Douyin, login checks, feed navigation, search, current video info, playback control, comments, likes, following the current author, favorites, sharing, danmaku, screenshots, or screen/audio recording. Prefer the CLI over direct browser automation for Douyin control. Do not use it for video-watching strategy, recommendation guidance, persona behavior, or video creation ideas.
 ---
 
 # 抖音网页版控制
@@ -27,7 +27,7 @@ douyin-web --help
 
 - 用户要 Agent 操作抖音网页版。
 - 用户要测试、验证、扩展 `douyin-web` CLI。
-- 用户要打开抖音、检查登录、控制播放器、截图、录制、点赞、收藏、分享、评论或弹幕。
+- 用户要打开抖音、检查登录、控制播放器、截图、录制、点赞、关注当前视频作者、收藏、分享、评论或弹幕。
 
 不要用本 skill 的场景：
 
@@ -68,7 +68,7 @@ skills/douyin-web-control/scripts/douyin-web --json COMMAND
 
 - 优先通过 CLI 操作抖音，不要绕过 CLI 直接点网页；只有调试 CLI 实现时才直接检查 DOM 或页面。
 - 页面动作默认截图。读取 JSON 里的 `data.screenshot.path` 做视觉确认。
-- 对账号有影响的动作，例如 `like`、`favorite`、`share`、`comment --submit`、`danmaku-send --submit`，执行前确认用户允许。
+- 对账号有影响的动作，例如 `like`、`follow-author`、`favorite`、`share`、`comment --submit`、`danmaku-send --submit`，执行前确认用户允许。
 - 对视觉状态不稳定的动作，例如 `danmaku off`、`loop`、点赞/收藏高亮状态，只报告 CLI 结果和截图，不要声称绝对确认。
 - 如果用户要求“测试 CLI”，必须用 `douyin-web` 命令执行测试。
 
@@ -151,6 +151,7 @@ douyin-web --json comments close
 douyin-web --json comment "评论草稿" --no-submit
 douyin-web --json danmaku-send "弹幕草稿" --no-submit
 douyin-web --json like
+douyin-web --json follow-author
 douyin-web --json favorite
 douyin-web --json share
 ```

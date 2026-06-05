@@ -35,7 +35,7 @@ skills/douyin-web-control/
 ## What This Skill Does
 
 - Teaches an Agent when to use `douyin-web` instead of direct browser automation.
-- Shows the command patterns for launch, login, navigation, playback, comments, danmaku, screenshots, and recording.
+- Shows the command patterns for launch, login, navigation, playback, following the current author, comments, danmaku, screenshots, and recording.
 - Explains which actions can affect the Douyin account.
 - Keeps the feature matrix in `references/feature-matrix.md`.
 - Bundles a small wrapper script in `scripts/douyin-web` so the Agent can find the CLI from `PATH`, `DOUYIN_WEB_CLI`, or `DOUYIN_CLI_ROOT`.
@@ -50,4 +50,4 @@ See `MARKETPLACES.md` for current publishing status and repeatable submission co
 
 ## Safety
 
-This skill can guide an Agent to perform account-affecting actions such as liking, favoriting, commenting, or sending danmaku. Agents should ask for user permission before submitting anything that changes the account state.
+This skill can guide an Agent to perform account-affecting actions such as liking, following authors, favoriting, commenting, or sending danmaku. Agents should ask for user permission before submitting anything that changes the account state.

@@ -48,6 +48,8 @@ skills/douyin-web-control/
 - `ClawHub`: publish this skill repository with the ClawHub CLI if you use OpenClaw.
 - `SkillMap` / similar indexes: submit or index this GitHub repository URL when their intake form asks for a public skill repo.
 
+See `MARKETPLACES.md` for current publishing status and repeatable submission commands.
+
 ## Safety
 
 This skill can guide an Agent to perform account-affecting actions such as liking, favoriting, commenting, or sending danmaku. Agents should ask for user permission before submitting anything that changes the account state.

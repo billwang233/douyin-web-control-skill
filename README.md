@@ -37,6 +37,7 @@ skills/douyin-web-control/
 - Teaches an Agent when to use `douyin-web` instead of direct browser automation.
 - Shows the command patterns for launch, login, navigation, playback, following the current author, comments, danmaku, screenshots, and recording.
 - Explains how to use `douyin-web --profile NAME` to isolate concurrent projects.
+- Requires Agents to pause for user action when login, captcha, SMS verification, slider verification, or account-risk prompts appear.
 - Explains which actions can affect the Douyin account.
 - Keeps the feature matrix in `references/feature-matrix.md`.
 - Bundles a small wrapper script in `scripts/douyin-web` so the Agent can find the CLI from `PATH`, `DOUYIN_WEB_CLI`, or `DOUYIN_CLI_ROOT`.

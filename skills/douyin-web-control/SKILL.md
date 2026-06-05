@@ -83,11 +83,21 @@ douyin-web --profile project-b --json current
 - 优先通过 CLI 操作抖音，不要绕过 CLI 直接点网页；只有调试 CLI 实现时才直接检查 DOM 或页面。
 - 并行项目必须全程使用各自的 `--profile`；如果后续命令漏掉 profile，会回到默认会话。
 - 页面动作默认截图。读取 JSON 里的 `data.screenshot.path` 做视觉确认。
+- 如果弹出登录页、验证码、滑块验证、短信验证、账号风控或任何真人验证，不要尝试绕过、自动识别或自动填写。立即停下来提示用户人工处理；用户确认完成后，再运行 `douyin-web --json status` 或 `douyin-web --json wait-login --timeout 300` 确认状态，然后继续后续动作。
 - 对账号有影响的动作，例如 `like`、`follow-author`、`favorite`、`share`、`comment --submit`、`danmaku-send --submit`，执行前确认用户允许。
 - 对视觉状态不稳定的动作，例如 `danmaku off`、`loop`、点赞/收藏高亮状态，只报告 CLI 结果和截图，不要声称绝对确认。
 - 如果用户要求“测试 CLI”，必须用 `douyin-web` 命令执行测试。
 
 ## 常用工作流
+
+登录、验证码和风控处理：
+
+```bash
+douyin-web --json status
+douyin-web --json wait-login --timeout 300
+```
+
+如果 `status` 显示未登录，或者截图里出现验证码/登录/验证页面，停止当前自动化流程，向用户说明需要人工登录或验证。不要继续点击、不要尝试破解验证码。用户确认处理完成后，再重新运行 `status` 或 `wait-login`。
 
 检查会话和登录：
 

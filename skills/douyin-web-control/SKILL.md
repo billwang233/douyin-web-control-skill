@@ -64,9 +64,24 @@ skills/douyin-web-control/scripts/douyin-web --json COMMAND
 --home ${DOUYIN_WEB_HOME:-/tmp/douyin-web-home}
 ```
 
+并行多个项目时，优先使用全局 `--profile`，并且后续每条命令都带同一个 profile：
+
+```bash
+douyin-web --profile project-a --json launch
+douyin-web --profile project-a --json open recommend
+douyin-web --profile project-a --json current
+
+douyin-web --profile project-b --json launch
+douyin-web --profile project-b --json open jingxuan
+douyin-web --profile project-b --json current
+```
+
+`--profile NAME` 会把会话、截图和浏览器数据隔离到 `~/.douyin-web-cli/profiles/NAME/`。不要在同一条命令里混用 `--profile` 和 `--home`。
+
 ## 工作原则
 
 - 优先通过 CLI 操作抖音，不要绕过 CLI 直接点网页；只有调试 CLI 实现时才直接检查 DOM 或页面。
+- 并行项目必须全程使用各自的 `--profile`；如果后续命令漏掉 profile，会回到默认会话。
 - 页面动作默认截图。读取 JSON 里的 `data.screenshot.path` 做视觉确认。
 - 对账号有影响的动作，例如 `like`、`follow-author`、`favorite`、`share`、`comment --submit`、`danmaku-send --submit`，执行前确认用户允许。
 - 对视觉状态不稳定的动作，例如 `danmaku off`、`loop`、点赞/收藏高亮状态，只报告 CLI 结果和截图，不要声称绝对确认。
